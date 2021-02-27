@@ -86,7 +86,7 @@ const ImageUpload: React.FC = () => {
         accept="image/*"
       />
       <ol className={cn('files-list')}>
-        {[...images].map(([uuid, img]) => (
+        {[...images].reverse().map(([uuid, img]) => (
           <ImageListItem key={uuid} img={img} />
         ))}
       </ol>
