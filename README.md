@@ -1,4 +1,13 @@
-# Getting Started with Create React App
+# (Fake) Image Upload
+
+It is a **playground** to experiment with some interesting technologies:
+
+- `React`, `useReducer`
+- `Typescript`
+- `Immer`
+- `CSS Modules`
+- `React Testing Library`
+- `msw` (Mock Service Worker)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
