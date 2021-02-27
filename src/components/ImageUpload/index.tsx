@@ -5,24 +5,30 @@ import { Fragment, useReducer } from 'react'
 import { Action, Image, State } from './types'
 import produce, { enableMapSet } from 'immer'
 import ImageListItem from './ImageListItem'
+import { compressImage, getImageBase64Url } from 'utils/images'
 
 const cn = classNames.bind(styles)
 enableMapSet()
 
 const imageReducer = (state: State, action: Action) => {
+  const img = state.get(action.uuid)
   switch (action.type) {
     case 'add_image':
       return state.set(action.uuid, {
         file: action.file,
         status: 'in-progress',
+        imgUrl: '',
       })
     case 'update_status':
-      const img = state.get(action.uuid)
       if (img) {
         img.status = action.status
       }
       return
-
+    case 'update_img_url':
+      if (img) {
+        img.imgUrl = action.imgUrl
+      }
+      return
     default:
       return state
   }
@@ -56,7 +62,12 @@ const ImageUpload: React.FC = () => {
           status: 'in-progress',
           uuid: imageUUID,
         })
-        const { status } = await mockUpload(image)
+
+        const imageToSend = await compressImage(image)
+        const base64url = await getImageBase64Url(imageToSend)
+        dispatch({ type: 'update_img_url', imgUrl: base64url, uuid: imageUUID })
+
+        const { status } = await mockUpload(imageToSend)
         if (status !== 200) {
           dispatch({ type: 'update_status', status: 'failed', uuid: imageUUID })
         }

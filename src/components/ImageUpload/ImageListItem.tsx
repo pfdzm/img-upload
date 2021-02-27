@@ -13,7 +13,8 @@ const ImageListItem: React.FC<ImageProps> = ({ img }) => (
       { failed: img.status === 'failed' }
     )}
   >
-    {img.file.name}
+    <h3>{img.file.name}</h3>
+    <img src={img.imgUrl} className={cn('image')} alt="" />
   </li>
 )
 

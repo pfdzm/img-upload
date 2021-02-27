@@ -18,6 +18,13 @@
     background-color: rgba(250, 250, 250, 1);
     margin-bottom: 1rem;
   }
+
+  img {
+    max-width: 18rem;
+    height: auto;
+    margin: 0 auto;
+  }
+
   li.in-progress {
     display: block;
     list-style-type: none;
