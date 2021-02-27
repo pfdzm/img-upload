@@ -1,0 +1,34 @@
+.file-input {
+  background-color: rgba(250, 250, 250, 1);
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(50, 50, 50, 0.2);
+}
+.transition {
+  transition: all 0.5s ease-in-out;
+}
+
+.files-list {
+  width: 100%;
+  font-size: larger;
+  padding: 1rem 0.5rem;
+  font-family: 'Courier New', Courier, monospace;
+
+  li {
+    background-color: rgba(250, 250, 250, 1);
+    margin-bottom: 1rem;
+  }
+  li.in-progress {
+    display: block;
+    list-style-type: none;
+    background-color: rgba(250, 250, 125, 0.5);
+  }
+
+  .done {
+    background-color: rgba(125, 250, 125, 0.5);
+  }
+
+  .failed {
+    background-color: rgba(250, 125, 125, 0.5);
+  }
+}
