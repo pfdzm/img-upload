@@ -8,9 +8,26 @@ import type { InfoBoxProps } from './types'
 
 const cn = classNames.bind(styles)
 
+const getHeaderText = (
+  type: 'info' | 'error' | 'success',
+  contentHeader: string
+) => {
+  if (contentHeader) {
+    return contentHeader
+  }
+  switch (type) {
+    case 'info':
+      return 'Information'
+    case 'error':
+      return 'Error!'
+    case 'success':
+      return 'Success!'
+  }
+}
+
 const InfoBox = ({
   contentBody,
-  contentHeader = 'Information',
+  contentHeader = '',
   showContent = true,
   type = 'info',
 }: InfoBoxProps) => {
@@ -38,7 +55,7 @@ const InfoBox = ({
               ref={chevronRef}
             />
           </CSSTransition>
-          <h2>{contentHeader}</h2>
+          <h2>{getHeaderText(type, contentHeader)}</h2>
         </div>
         <CSSTransition
           classNames="fade"
