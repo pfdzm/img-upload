@@ -12,6 +12,7 @@ const Template: Story<InfoBoxProps> = (args) => <InfoBox {...args} />
 export const Information = Template.bind({})
 
 Information.args = {
-  contentBody: 'Bla bla bla!',
+  contentBody:
+    "Here's some valuable information I wanted to share with you! 🌞",
   type: 'info',
 }
