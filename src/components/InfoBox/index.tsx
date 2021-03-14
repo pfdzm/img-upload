@@ -28,13 +28,13 @@ const InfoBox = ({
       <div className={cn('content')}>
         <div className={cn('header')} onClick={toggleVisibility}>
           <CSSTransition
-            in={show}
+            in={!show}
             timeout={300}
             classNames="rotate"
             nodeRef={chevronRef}
           >
             <ChevronDown
-              className={cn('h-2', 'w-2', { rotated: show })}
+              className={cn('h-2', 'w-2', { rotated: !show })}
               ref={chevronRef}
             />
           </CSSTransition>
